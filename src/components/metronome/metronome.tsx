@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import style from './metronome.module.css';
+import { playTak, playTik } from '../../utils/sounds';
 
 export function Metronome() {
     const [bpm, setBpm] = useState<number>(60);
@@ -13,6 +14,11 @@ export function Metronome() {
             timer = setInterval(() => {
                 setBeat((prevBeat) => {
                     const nextBeat = prevBeat + 1 > 4 ? 1 : prevBeat + 1;
+                    if (nextBeat === 1) {
+                        playTik();
+                    } else {
+                        playTak();
+                    }
                     return nextBeat;
                 });
             }, 60000 / bpm);

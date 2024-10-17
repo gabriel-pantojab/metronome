@@ -1,0 +1,48 @@
+.metronome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    gap: 0.5rem;
+    color: black;
+    padding: 2rem;
+    border-radius: 1rem;
+    min-width: 300px;
+}
+
+.beat {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.bpm {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bpmValue {
+    text-align: center;
+}
+
+.bpmControls {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.signatures {
+    display: flex;
+    gap: 0.5rem;
+}

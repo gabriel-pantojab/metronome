@@ -61,7 +61,7 @@ export function Metronome() {
 
             <div>
                 <button className={style.button} onClick={handlePlay}>
-                    <PlayIcon width={32} height={32} />
+                    <PlayIcon width={50} height={50} />
                 </button>
             </div>
         </section>

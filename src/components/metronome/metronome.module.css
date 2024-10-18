@@ -34,24 +34,12 @@
 }
 
 .button {
-    padding: 0.5rem 1rem;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    font-weight: 700;
     cursor: pointer;
-}
-
-.startButton {
-    background-color: #36f994;
-    color: white;
-    font-size: 1.3rem;
-}
-
-.stopButton {
-    background-color: #ff3b3b;
-    color: white;
-    font-size: 1.3rem;
 }
 
 .signatures {

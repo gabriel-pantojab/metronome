@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 
-import style from './metronome.module.css';
+import { BpmControls } from '../bpm-controls/bpm-controls';
+import { Beat } from '../beat/beat';
+
 import { playTak, playTik } from '../../utils/sounds';
+import style from './metronome.module.css';
 
 export function Metronome() {
     const [bpm, setBpm] = useState<number>(60);
@@ -29,7 +32,7 @@ export function Metronome() {
         return () => {
             if (timer) clearInterval(timer);
         };
-    }, [playing, bpm, 4]);
+    }, [playing, bpm]);
 
     const handlePlay = () => {
         setPlaying((prevPlaying) => {
@@ -42,42 +45,16 @@ export function Metronome() {
 
     return (
         <section className={style.metronome}>
-            <div className={style.beat}>
-                {
-                    <span style={beat === 1 ? { fontWeight: 'bold' } : { fontWeight: 'normal' }}>
-                        {beat}
-                    </span>
-                }
+            <div className={style.beats}>
+                {[1, 2, 3, 4].map((i) => (
+                    <Beat key={i} color={i === 1 ? 'red' : 'yellow'} active={beat === i} />
+                ))}
             </div>
 
             <div className={style.bpm}>
                 <p className={style.bpmValue}>{bpm} bpm</p>
 
-                <div className={style.bpmControls}>
-                    <button
-                        className={`${style.button} ${style.primaryButton}`}
-                        onClick={() => setBpm(bpm - 1)}>
-                        -
-                    </button>
-
-                    <input
-                        style={{ width: '100%' }}
-                        type="range"
-                        name="bpm"
-                        id="bpm"
-                        min="1"
-                        max="240"
-                        step={1}
-                        value={bpm}
-                        onChange={(e) => setBpm(Number(e.target.value))}
-                    />
-
-                    <button
-                        className={`${style.button} ${style.primaryButton}`}
-                        onClick={() => setBpm(bpm + 1)}>
-                        +
-                    </button>
-                </div>
+                <BpmControls bpm={bpm} setBpm={setBpm} />
             </div>
 
             <div>

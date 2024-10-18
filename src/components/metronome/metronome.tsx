@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 
-import { BpmControls } from '../bpm-controls/bpm-controls';
-import { Beat } from '../beat/beat';
+import { BpmControls } from '@components/bpm-controls/bpm-controls';
+import { Beat } from '@components/beat/beat';
 
-import { playTak, playTik } from '../../utils/sounds';
+import { playTak, playTik } from '@utils/sounds';
+
 import style from './metronome.module.css';
 
 export function Metronome() {
@@ -12,7 +13,7 @@ export function Metronome() {
     const [playing, setPlaying] = useState<boolean>(false);
 
     useEffect(() => {
-        let timer: number | null = null;
+        let timer: NodeJS.Timeout | null = null;
         if (playing) {
             timer = setInterval(() => {
                 setBeat((prevBeat) => {

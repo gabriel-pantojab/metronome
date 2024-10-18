@@ -1,50 +1,13 @@
-import { useEffect, useState } from 'react';
-
 import { BpmControls } from '@components/bpm-controls/bpm-controls';
 import { Beat } from '@components/beat/beat';
 import { PlayIcon } from '@components/icons/play-icon';
 import { StopIcon } from '@components/icons/stop-icon';
-
-import { playTak, playTik } from '@utils/sounds';
+import useMetronome from '@/hooks/useMetronome';
 
 import style from './metronome.module.css';
 
 export function Metronome() {
-    const [bpm, setBpm] = useState<number>(60);
-    const [beat, setBeat] = useState<number>(1);
-    const [playing, setPlaying] = useState<boolean>(false);
-
-    useEffect(() => {
-        let timer: NodeJS.Timeout | null = null;
-        if (playing) {
-            timer = setInterval(() => {
-                setBeat((prevBeat) => {
-                    const nextBeat = prevBeat + 1 > 4 ? 1 : prevBeat + 1;
-                    if (nextBeat === 1) {
-                        playTik();
-                    } else {
-                        playTak();
-                    }
-                    return nextBeat;
-                });
-            }, 60000 / bpm);
-        } else {
-            if (timer) clearInterval(timer);
-        }
-
-        return () => {
-            if (timer) clearInterval(timer);
-        };
-    }, [playing, bpm]);
-
-    const handlePlay = () => {
-        setPlaying((prevPlaying) => {
-            if (prevPlaying) {
-                setBeat(1);
-            }
-            return !prevPlaying;
-        });
-    };
+    const { bpm, beat, playing, setBpm, togglePlaying } = useMetronome();
 
     return (
         <section className={style.metronome}>
@@ -61,7 +24,7 @@ export function Metronome() {
             </div>
 
             <div>
-                <button className={style.button} onClick={handlePlay}>
+                <button className={style.button} onClick={togglePlaying}>
                     {!playing ? (
                         <PlayIcon width={50} height={50} />
                     ) : (

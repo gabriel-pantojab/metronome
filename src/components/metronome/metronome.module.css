@@ -6,11 +6,18 @@
     background-color: #242424;
     gap: 0.5rem;
     color: white;
-    padding: 2rem;
+    padding: 1rem 2rem;
     border-radius: 1rem;
     width: 100%;
     min-width: 300px;
     max-width: 600px;
+}
+
+.beat {
+    font-size: 1.6rem;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
 }
 
 .beats {

@@ -11,6 +11,8 @@ export function Metronome() {
 
     return (
         <section className={style.metronome}>
+            <p className={style.beat}>{beat}</p>
+
             <div className={style.beats}>
                 {[1, 2, 3, 4].map((i) => (
                     <Beat key={i} color={i === 1 ? 'red' : 'yellow'} active={beat === i} />
@@ -18,7 +20,7 @@ export function Metronome() {
             </div>
 
             <div className={style.bpm}>
-                <p className={style.bpmValue}>{bpm} bpm</p>
+                <p className={style.bpmValue}>{bpm} BPM</p>
 
                 <BpmControls bpm={bpm} setBpm={setBpm} />
             </div>

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { BpmControls } from '@components/bpm-controls/bpm-controls';
 import { Beat } from '@components/beat/beat';
 import { PlayIcon } from '@components/icons/play-icon';
+import { StopIcon } from '@components/icons/stop-icon';
 
 import { playTak, playTik } from '@utils/sounds';
 
@@ -61,7 +62,11 @@ export function Metronome() {
 
             <div>
                 <button className={style.button} onClick={handlePlay}>
-                    <PlayIcon width={50} height={50} />
+                    {!playing ? (
+                        <PlayIcon width={50} height={50} />
+                    ) : (
+                        <StopIcon width={50} height={50} />
+                    )}
                 </button>
             </div>
         </section>

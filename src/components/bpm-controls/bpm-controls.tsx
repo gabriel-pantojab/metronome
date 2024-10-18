@@ -11,7 +11,7 @@ export function BpmControls({ bpm, setBpm }: BpmControlsProps) {
 
     return (
         <div className={style.bpmControls}>
-            <button className={`${style.button} ${style.primaryButton}`} onClick={incrementBpm}>
+            <button className={`${style.button} ${style.primaryButton}`} onClick={decrementBpm}>
                 -
             </button>
 
@@ -27,7 +27,7 @@ export function BpmControls({ bpm, setBpm }: BpmControlsProps) {
                 onChange={(e) => setBpm(Number(e.target.value))}
             />
 
-            <button className={`${style.button} ${style.primaryButton}`} onClick={decrementBpm}>
+            <button className={`${style.button} ${style.primaryButton}`} onClick={incrementBpm}>
                 +
             </button>
         </div>

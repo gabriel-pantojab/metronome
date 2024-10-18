@@ -4,11 +4,13 @@
     align-items: center;
     justify-content: center;
     background-color: white;
-    gap: 0.5rem;
+    gap: .5rem;
     color: black;
     padding: 2rem;
     border-radius: 1rem;
+    width: 100%;
     min-width: 300px;
+    max-width: 600px;
 }
 
 .beat {
@@ -21,6 +23,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: .5rem;
+    width: 100%;
 }
 
 .bpmValue {
@@ -31,6 +35,7 @@
     display: flex;
     justify-content: center;
     gap: 0.5rem;
+    width: 100%;
 }
 
 .button {
@@ -40,6 +45,21 @@
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
+}
+
+.primaryButton {
+    background-color: #007bff;
+    color: white;
+}
+
+.startButton {
+    background-color: #36f994;
+    color: black;
+}
+
+.stopButton {
+    background-color: #ff3b3b;
+    color: white;
 }
 
 .signatures {

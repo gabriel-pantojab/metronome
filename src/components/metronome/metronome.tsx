@@ -54,28 +54,36 @@ export function Metronome() {
                 <p className={style.bpmValue}>{bpm} bpm</p>
 
                 <div className={style.bpmControls}>
-                    <button className={style.button} onClick={() => setBpm(bpm - 1)}>
+                    <button
+                        className={`${style.button} ${style.primaryButton}`}
+                        onClick={() => setBpm(bpm - 1)}>
                         -
                     </button>
 
                     <input
+                        style={{ width: '100%' }}
                         type="range"
                         name="bpm"
                         id="bpm"
                         min="1"
                         max="240"
+                        step={1}
                         value={bpm}
                         onChange={(e) => setBpm(Number(e.target.value))}
                     />
 
-                    <button className={style.button} onClick={() => setBpm(bpm + 1)}>
+                    <button
+                        className={`${style.button} ${style.primaryButton}`}
+                        onClick={() => setBpm(bpm + 1)}>
                         +
                     </button>
                 </div>
             </div>
 
             <div>
-                <button className={style.button} onClick={handlePlay}>
+                <button
+                    className={`${style.button} ${playing ? style.stopButton : style.startButton}`}
+                    onClick={handlePlay}>
                     {playing ? 'Stop' : 'Start'}
                 </button>
             </div>
